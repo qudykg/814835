@@ -7,7 +7,6 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      /* ألوان ذهبية وأسود ورمادي */
       background: linear-gradient(-45deg, #000000, #434343, #ffd700, #ffcc00, #666666, #1a1a1a);
       background-size: 400% 400%;
       animation: gradientMove 25s ease infinite;
@@ -16,8 +15,6 @@
       position: relative;
       overflow: hidden;
     }
-
-    /* تأثير الضجيج */
     body::after {
       content: "";
       position: absolute;
@@ -27,16 +24,12 @@
       opacity: 0.15;
       pointer-events: none;
     }
-
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
-    /* شفافية لتظهر الألوان من الخلف */
     .overlay { background-color: rgba(255, 255, 255, 0.75); padding: 20px; height: 100%; overflow-y: auto; }
-
     header { text-align: center; margin-bottom: 30px; }
     header h1 { font-size: 48px; margin-bottom: 10px; }
     header p { font-size: 20px; color: #444; }
@@ -49,7 +42,8 @@
     .product-name { font-weight: bold; margin: 10px 0 5px; }
     .price { color: #007700; font-size: 18px; }
     .modal { display: none; position: fixed; z-index: 99; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
-    .modal-content { background-color: #fff; margin: 80px auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 500px; }
+    .modal-content { background-color: #fff; margin: 80px auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 500px; text-align: center; }
+    .modal-content img { max-width: 100%; border-radius: 8px; margin-bottom: 15px; }
     .close { float: right; font-size: 24px; font-weight: bold; cursor: pointer; }
   </style>
 </head>
@@ -63,54 +57,33 @@
       <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProducts()">
     </div>
     <div class="products">
-      <div class="product" onclick="showDetails('كرتونة بيض', '170 EGP', ['الوزن الصافي : 2 كجم', 'شركة الانتاج : غير محدد'], ['تاريخ الانتاج : .....', 'تاريخ الانتهاء : .....'])">
+      <div class="product" onclick="showDetails('كرتونة بيض', '170 EGP', 'https://i.ibb.co/p6RQxKx7/R.jpg', ['الوزن الصافي : 2 كجم', 'شركة الانتاج : غير محدد'], ['تاريخ الانتاج : .....', 'تاريخ الانتهاء : .....'])">
         <img src="https://i.ibb.co/p6RQxKx7/R.jpg">
         <p class="product-name">كرتونة بيض</p>
         <p class="price">170 EGP</p>
       </div>
-      <div class="product" onclick="showDetails('مشروب غازي ببسي', '30 EGP', ['الوزن الصافي : 2 لتر', 'شركة الانتاج : ببسي'], ['تاريخ الانتاج : .....', 'تاريخ الانتهاء : .....'])">
+      <div class="product" onclick="showDetails('مشروب غازي ببسي', '40 EGP', 'https://i.ibb.co/TBdRKZk0/305e142299fcae0bcda6b74ea892fd69.jpg', ['الوزن الصافي : 2 لتر', 'شركة الانتاج : ببسي'], ['تاريخ الانتاج : .....', 'تاريخ الانتهاء : .....'])">
         <img src="https://i.ibb.co/TBdRKZk0/305e142299fcae0bcda6b74ea892fd69.jpg">
         <p class="product-name">مشروب غازي ببسي</p>
         <p class="price">40 EGP</p>
       </div>
-      <div class="product" onclick="showDetails('عصير قمر الدين', '100 EGP', ['الوزن الصافي : 2 كجم', 'شركة الانتاج : فيتراك'], ['تاريخ الانتاج : .....', 'تاريخ الانتهاء : .....'])">
-        <img src="https://i.ibb.co/1tzpwj29/Fe-Lu-Sl-FYm-RLyvp-Bl3riq0-QU8-Bw9gcyjfcfht-Jh-Ok.jpg">
-        <p class="product-name">عصير قمر الدين</p>
-        <p class="price">100 EGP</p>
-      </div>
-      <div class="product" onclick="showDetails('أرز مصري', '30 EGP', ['الوزن الصافي : 1 كجم', 'شركة الانتاج : الضحى'], ['تاريخ الانتاج : .....', 'تاريخ الانتهاء : .....'])">
-        <img src="https://i.ibb.co/fGZTBn6c/OIP.webp">
-        <p class="product-name">أرز مصري</p>
-        <p class="price">30 EGP</p>
-      </div>
-      <div class="product" onclick="showDetails('لبن بخيره صحي', '25 EGP', ['الوزن الصافي : 500مل', 'شركة الانتاج : جهينة بخيره'], ['تاريخ الانتاج :.... ', 'تاريخ الانتهاء : .....'])">
-        <img src="https://i.ibb.co/wN7C5S05/40556-main.jpg">
-        <p class="product-name">لبن بخيره صحي</p>
-        <p class="price">25 EGP</p>
-      </div>
-      <div class="product" onclick="showDetails('مكرونة اسباجتي', '11 EGP', ['الوزن الصافي : 350', 'شركة الانتاج : الضحى'], ['تاريخ الانتاج : .....', 'تاريخ الانتهاء'])">
-        <img src="https://i.ibb.co/vC5qcMRF/480-Wx480-H-131615-main.jpg">
-        <p class="product-name">مكرونة اسباجتي</p>
-        <p class="price">11 EGP</p>
-      </div>
-      <div class="product" onclick="showDetails('قلم روتو', '6 EGP', ['الوزن الصافي : غير محدد', 'شركة الانتاج : روتو'], ['غير محدد'])">
-       <img src="https://i.ibb.co/FqKjSdMJ/31yqr-Me7-WZL-AC.jpg">
-        <p class="product-name">قلم روتو</p>
-        <p class="price">6 EGP</p>
-      </div>
     </div>
   </div>
+
+  <!-- النافذة المنبثقة -->
   <div id="detailsModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="">
       <h2 id="modalTitle"></h2>
-      <p><strong>Price:</strong> <span id="modalPrice"></span></p>
+      <p><strong>السعر:</strong> <span id="modalPrice"></span></p>
       <p><strong>التفاصيل:</strong></p>
       <ul id="modalPros"></ul>
-      <p><strong>تاريخ الصنع:</strong></p>
+      <p><strong>ملاحظات:</strong></p>
       <ul id="modalCons"></ul>
     </div>
   </div>
+
   <script>
     function searchProducts() {
       const input = document.getElementById("searchInput").value.toLowerCase();
@@ -120,17 +93,31 @@
         product.style.display = name.includes(input) ? "block" : "none";
       });
     }
-    function showDetails(name, price, pros, cons) {
+
+    function showDetails(name, price, image, pros, cons) {
       document.getElementById("modalTitle").textContent = name;
       document.getElementById("modalPrice").textContent = price;
+      document.getElementById("modalImage").src = image;
+
       const prosList = document.getElementById("modalPros");
       prosList.innerHTML = "";
-      pros.forEach(p => { let li = document.createElement("li"); li.textContent = p; prosList.appendChild(li); });
+      pros.forEach(p => {
+        let li = document.createElement("li");
+        li.textContent = p;
+        prosList.appendChild(li);
+      });
+
       const consList = document.getElementById("modalCons");
       consList.innerHTML = "";
-      cons.forEach(c => { let li = document.createElement("li"); li.textContent = c; consList.appendChild(li); });
+      cons.forEach(c => {
+        let li = document.createElement("li");
+        li.textContent = c;
+        consList.appendChild(li);
+      });
+
       document.getElementById("detailsModal").style.display = "block";
     }
+
     function closeModal() {
       document.getElementById("detailsModal").style.display = "none";
     }
