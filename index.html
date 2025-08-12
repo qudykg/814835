@@ -7,9 +7,10 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+      /* ألوان ذهبية وأسود ورمادي */
+      background: linear-gradient(-45deg, #000000, #434343, #ffd700, #ffcc00, #666666, #1a1a1a);
       background-size: 400% 400%;
-      animation: gradientMove 20s ease infinite;
+      animation: gradientMove 25s ease infinite;
       height: 100vh;
       color: #222;
       position: relative;
@@ -33,7 +34,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* جعل الخلفية شفافة قليلاً حتى تظهر الألوان */
+    /* شفافية لتظهر الألوان من الخلف */
     .overlay { background-color: rgba(255, 255, 255, 0.75); padding: 20px; height: 100%; overflow-y: auto; }
 
     header { text-align: center; margin-bottom: 30px; }
