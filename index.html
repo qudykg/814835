@@ -9,14 +9,14 @@
       font-family: 'Arial', sans-serif;
       background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
       background-size: 400% 400%;
-      animation: gradientMove 20s ease infinite; /* حركة بطيئة */
+      animation: gradientMove 20s ease infinite;
       height: 100vh;
       color: #222;
       position: relative;
       overflow: hidden;
     }
 
-    /* تأثير الضجيج (Noise) */
+    /* تأثير الضجيج */
     body::after {
       content: "";
       position: absolute;
@@ -33,7 +33,9 @@
       100% { background-position: 0% 50%; }
     }
 
-    .overlay { background-color: rgba(255, 255, 255, 0.92); padding: 20px; height: 100%; overflow-y: auto; }
+    /* جعل الخلفية شفافة قليلاً حتى تظهر الألوان */
+    .overlay { background-color: rgba(255, 255, 255, 0.75); padding: 20px; height: 100%; overflow-y: auto; }
+
     header { text-align: center; margin-bottom: 30px; }
     header h1 { font-size: 48px; margin-bottom: 10px; }
     header p { font-size: 20px; color: #444; }
